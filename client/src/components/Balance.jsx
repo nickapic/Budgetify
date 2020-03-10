@@ -11,8 +11,8 @@ export const Balance = () => {
   const total = amounts.reduce((prev, cur) => (prev += cur), 0);
 
   return (
-    <div>
-      <h4>Your Balance</h4>
+    <div className=''>
+      <h4>Your Current Balance is</h4>
       <h1 id="balance">${numberWithCommas(total)}</h1>
     </div>
   );

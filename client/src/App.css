@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
-
+@import url("https://fonts.googleapis.com/css?family=Inter:400,700&display=swap");
 :root {
   --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -12,11 +11,12 @@ body {
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 3rem;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .container {
@@ -81,6 +81,7 @@ input[type="text"],
 input[type="number"] {
   border: 1px solid #dedede;
   border-radius: 2px;
+  font-family: inherit;
   display: block;
   font-size: 16px;
   padding: 10px;
@@ -92,6 +93,7 @@ input[type="number"] {
   background-color: #9c88ff;
   box-shadow: var(--box-shadow);
   color: #fff;
+  font-family: inherit;
   border: 0;
   display: block;
   font-size: 16px;
