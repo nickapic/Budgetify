@@ -32,7 +32,7 @@ export const GlobalProvider = ({ children }) => {
   //Actions
   async function deleteTransaction(id) {
     try {
-      await axios.delete(`/api/v1/tranasactions/${id}`);
+      await axios.delete(`/api/v1/transactions/${id}`);
 
       dispatch({
         type: "DELETE_TRANSACTION",

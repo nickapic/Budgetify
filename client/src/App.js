@@ -4,7 +4,7 @@ import Header from "./components/header";
 import { Balance } from "./components/Balance";
 import { IncomeExpenses } from "./components/IncomeExpenses";
 import { TransactionList } from "./components/TransactionList";
-import { AddTransaction } from "./components/AddTransaction";
+import { AddTransaction } from "./components/AddTransaction/AddTransaction";
 
 function App() {
   return (

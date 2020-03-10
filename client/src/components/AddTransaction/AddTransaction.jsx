@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import { GlobalContext } from "../../context/GlobalState";
+import "./AddTransactionStyles.scss";
 
 export const AddTransaction = () => {
   const [text, setText] = useState("");
@@ -10,7 +11,6 @@ export const AddTransaction = () => {
   const onSubmit = e => {
     e.preventDefault();
     const newTransaction = {
-      id: Math.floor(Math.random() * 1000000),
       text,
       amount: +amount
     };
