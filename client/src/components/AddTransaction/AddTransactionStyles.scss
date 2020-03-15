@@ -1,0 +1,15 @@
+.add-transaction {
+  &-title {
+    font-size: 1rem;
+    margin: 2rem 0 0 0;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  width: 70%;
+  .btn {
+    background-color: #fff;
+    color: black;
+    margin-top: 2rem;
+    text-transform: uppercase;
+  }
+}
