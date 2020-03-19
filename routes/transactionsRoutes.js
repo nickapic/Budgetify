@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { protect, restrictTo } = require("./../controllers/authController");
 const {
   getTransactions,
   addTransactions,
@@ -8,9 +9,11 @@ const {
 
 router
   .route("/")
-  .get(getTransactions)
+  .get(protect, getTransactions)
   .post(addTransactions);
 
-router.route("/:id").delete(deleteTransactions);
+router
+  .route("/:id")
+  .delete(protect, restrictTo("admin", "moderator"), deleteTransactions);
 
 module.exports = router;
