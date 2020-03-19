@@ -9,7 +9,7 @@ const {
 
 router
   .route("/")
-  .get(protect, getTransactions)
+  .get(getTransactions)
   .post(addTransactions);
 
 router
