@@ -4,6 +4,8 @@ const AppError = require("./utils/appError");
 const globalErrorHandeler = require("./controllers/errorController");
 const colors = require("colors");
 const morgan = require("morgan");
+const cors = require("cors");
+
 const connectDB = require("./config/db");
 
 dotenv.config({ path: "./config/config.env" });

@@ -2,9 +2,21 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
+const crypto = require("crypto");
 const { promisify } = require("util");
 const sendEmail = require("../utils/email");
 
+const createSendToken = (user, statusCode, res) => {
+  const token = signToken(user._id);
+
+  res.status(statusCode).json({
+    success: true,
+    token,
+    data: {
+      user
+    }
+  });
+};
 const signToken = id => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN
@@ -17,15 +29,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm
   });
-  const token = signToken(newUser._id);
-
-  res.status(201).json({
-    success: true,
-    token,
-    data: {
-      user: newUser
-    }
-  });
+  createSendToken(newUser, 201, res);
 });
 
 //Login Method
@@ -43,6 +47,8 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError("Incorrect email or password", 401));
   }
   //3) If everything is okay,send token to client
+  createSendToken(user, 200, res);
+
   const token = signToken(user._id);
   res.status(200).json({
     status: true,
@@ -108,16 +114,16 @@ exports.restrictTo = (...roles) => {
 };
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
-  //TODO 1) Get user based on posted email
+  //DONE 1) Get user based on posted email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
     return next(new AppError("There is no user with that email address.", 404));
   }
-  //TODO 2)Generate the random reset token
+  //DONE 2)Generate the random reset token
   const resetToken = user.createPasswordResetToken();
   //This will basically disable the validation before saving the object
   await user.save({ validateBeforeSave: false });
-  //TODO 3)Send it to user's email
+  //DONE 3)Send it to user's email
   const resetURL = `${req.protocol}://${req.get(
     "host"
   )}/api/v1/users/resetPassword/${resetToken}}`;
@@ -126,7 +132,8 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   try {
     await sendEmail({
       email: user.email,
-      subject: "Your password reset token(Valid for only 10 min)"
+      subject: "Your password reset token(Valid for only 10 min)",
+      message
     });
     res.status(200).json({
       status: true,
@@ -142,4 +149,46 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     );
   }
 });
-exports.resetPassword = (req, res, next) => {};
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  //DONE 1) Get user based on the token
+  const hashedToken = crypto
+    .createHash("sha256")
+    .update(req.params.token)
+    .digest("hex");
+
+  const user = await User.findOne({
+    passwordResetToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now() }
+  });
+  //TODO 2) If token has not expired and there is user ,set the new password
+  if (!user) {
+    return next(new AppError("Token is invalid or has expired", 400));
+  }
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.passwordConfirm;
+  user.passwordResetToken = undefined;
+  user.passwordResetExpires = undefined;
+  await user.save();
+  //TODO 3) Update the changedPassword at property for the user
+
+  //TODO 4) Log the user in,Send the JWT
+  createSendToken(user, 200, res);
+});
+
+exports.updatePassword = catchAsync(async (req, res, next) => {
+  //DONE 1) Get the user from the collection
+  const user = await User.findById(req.user.id).select("+password");
+  //DONE 2)Check if the POSTed password is correct
+  if (!(await user.correctPassword(req.body.passwordCurrent, user.password))) {
+    return next(
+      new AppError("Your current password is wrong .Please try again", 401)
+    );
+  }
+  //DONE 3) If so,Update the Current Password
+  user.password = req.body.password;
+  user.passwordConfirm = req.body.passwordConfirm;
+  await user.save();
+
+  //DONE 4) Log user in send JWT
+  createSendToken(user, 200, res);
+});
