@@ -11,7 +11,7 @@
     "install_dep": "cd client && npm run install",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "heroku-postbuild": "npm install_dep && npm run build-client"
+    "heroku-postbuild": "npm run install_dep && npm run build-client"
   },
   "author": "Aniket Chauhan",
   "license": "ISC",
