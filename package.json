@@ -7,9 +7,11 @@
     "start": "node server",
     "debug": "ndb server",
     "server": "nodemon server",
+    "build": "cd client && npm run build",
+    "install_dep": "cd client && npm install",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client "
+    "heroku-postbuild": "npm install_dep && npm run build"
   },
   "author": "Aniket Chauhan",
   "license": "ISC",
