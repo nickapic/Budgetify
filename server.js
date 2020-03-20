@@ -29,8 +29,11 @@ const users = require("./routes/usersRoutes");
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 //Set Security Http Headers
-
 app.use(helmet());
 
 //Body Parser ,reading data from the body into req.body
