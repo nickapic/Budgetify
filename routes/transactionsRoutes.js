@@ -9,11 +9,9 @@ const {
 
 router
   .route("/")
-  .get(getTransactions)
-  .post(addTransactions);
+  .get(protect, getTransactions)
+  .post(protect, addTransactions);
 
-router
-  .route("/:id")
-  .delete(protect, restrictTo("admin", "moderator"), deleteTransactions);
+router.route("/:id").delete(protect, deleteTransactions);
 
 module.exports = router;

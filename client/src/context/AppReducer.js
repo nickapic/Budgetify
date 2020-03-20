@@ -24,6 +24,16 @@ export default (state, action) => {
         ...state,
         error: action.payload
       };
+    case "LOGGED_IN":
+      return {
+        ...state,
+        currentUser: action.payload
+      };
+    case "SIGNED_IN":
+      return {
+        ...state,
+        currentUser: action.payload
+      };
     default:
       return state;
   }

@@ -1,12 +1,14 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
+import stringify from "json-stringify-safe";
 import axios from "axios";
 
 //Initial
 const initialState = {
   transactions: [],
   error: null,
-  loading: true
+  loading: true,
+  currentUser: ""
 };
 
 //Creating Context
@@ -31,6 +33,43 @@ export const GlobalProvider = ({ children }) => {
   }
 
   //Actions
+  async function signUser(user) {
+    try {
+      const res = await axios.post(`/api/v1/user/signup`, user);
+      console.log(stringify(res.data.data.user.name));
+      dispatch({
+        type: "SIGNED_IN",
+        payload: stringify(res.data.data.user.name)
+      });
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  }
+  async function logoutUser(user) {
+    try {
+      const res = await axios.post(`/api/v1/user/login`, user);
+      console.log(stringify(res.data.data.user.name));
+      dispatch({
+        type: "LOGGED_IN",
+        payload: stringify(res.data.data.user.name)
+      });
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  }
+  async function loginUser(user) {
+    try {
+      const res = await axios.post(`/api/v1/user/login`, user);
+      console.log(stringify(res.data.data.user.name));
+      dispatch({
+        type: "LOGGED_IN",
+        payload: stringify(res.data.data.user.name)
+      });
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  }
+
   async function deleteTransaction(id) {
     try {
       await axios.delete(`/api/v1/transactions/${id}`);
@@ -46,6 +85,7 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
+
   async function addTransaction(transaction) {
     const config = {
       header: {
@@ -65,6 +105,7 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -73,7 +114,10 @@ export const GlobalProvider = ({ children }) => {
         loading: state.loading,
         deleteTransaction,
         error: state.error,
-        addTransaction
+        addTransaction,
+        currentUser: state.currentUser,
+        loginUser,
+        signUser
       }}
     >
       {children}

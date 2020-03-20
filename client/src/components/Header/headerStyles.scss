@@ -1,4 +1,27 @@
 .title {
   text-transform: uppercase;
-  margin: 4rem 0 5rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  // background-color: #d81b48;
+  padding: 2rem 3rem 0 3rem;
+  position: absolute;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.navbarlink {
+  margin-right: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
 }

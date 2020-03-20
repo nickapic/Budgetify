@@ -21,6 +21,7 @@ body {
     width: 50%;
   }
   &-left {
+    padding-top: 10rem;
     color: white;
     padding-left: 3rem;
     width: 35%;
@@ -100,6 +101,46 @@ input[type="number"] {
   outline: 0;
 }
 
+.login {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  input {
+    font-family: inherit;
+    width: 15rem;
+    color: black;
+    padding: 0.4rem 0.3rem;
+  }
+  label {
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.navbar {
+  padding: 1rem 3rem;
+  background-color: black;
+  color: white;
+}
+
+.signuplink {
+  font-size: 0.7rem;
+  color: black;
+}
+.login-btn {
+  padding: 1rem 3rem;
+  margin: 2rem 0;
+  color: white;
+  background-color: black;
+}
 .list {
   list-style-type: none;
   padding: 0;
