@@ -54,7 +54,7 @@ export const GlobalProvider = ({ children }) => {
         payload: stringify(res.data.data.user.name)
       });
     } catch (err) {
-      console.log(err.response.data.message);
+      alert(stringify(err.response.data.message));
     }
   }
   async function loginUser(user) {
@@ -66,7 +66,7 @@ export const GlobalProvider = ({ children }) => {
         payload: stringify(res.data.data.user.name)
       });
     } catch (err) {
-      console.log(err.response.data.message);
+      alert(stringify(err.response.data.message));
     }
   }
 
