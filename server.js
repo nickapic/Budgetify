@@ -34,7 +34,6 @@ app.use((req, res, next) => {
   next();
 });
 //Set Security Http Headers
-app.use(helmet());
 
 //Body Parser ,reading data from the body into req.body
 app.use(
