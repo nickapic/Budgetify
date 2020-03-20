@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server && npm run heroku-postbuild",
+    "start": "node server",
     "debug": "ndb server",
     "server": "nodemon server",
     "build-client": "cd client && npm run build",
-    "install_dep": "cd client && npm install",
+    "install_dep": "cd client && npm run install",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "heroku-postbuild": "npm install_dep && npm run build-client"
