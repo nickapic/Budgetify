@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
+    "start": "node server && npm run heroku-postbuild",
     "debug": "ndb server",
     "server": "nodemon server",
-    "build": "cd client && npm run build",
+    "build-client": "cd client && npm run build",
     "install_dep": "cd client && npm install",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "heroku-postbuild": "npm install_dep && npm run build"
+    "heroku-postbuild": "npm install_dep && npm run build-client"
   },
   "author": "Aniket Chauhan",
   "license": "ISC",
