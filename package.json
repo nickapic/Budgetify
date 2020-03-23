@@ -4,13 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
-    "debug": "ndb server",
-    "server": "nodemon server",
-    "build-client": "cd ./client && npm run build",
-    "install_dep": "cd ./client && npm run install",
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" "
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Aniket Chauhan",
   "license": "ISC",
