@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
+const config = require("config");
+const db = config.get("mongoURI");
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect(db, {
       useNewUrlParser: true,
-      useCreateIndex: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useCreateIndex: true
     });
-
-    console.log(
-      `MongoDB Connected: ${conn.connection.host}`.cyan.underline.bold
-    );
+    console.log("MongoDb is on bois");
   } catch (err) {
-    console.log(`Error: ${err.message}`.red);
+    console.log(err.message, err.stack);
+    //Exit the process with Failure
     process.exit(1);
   }
 };
