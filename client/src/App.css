@@ -1,28 +1,65 @@
 html {
   box-sizing: border-box;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 body {
   margin: 0;
   font-family: "Barlow Condensed", sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 .header {
   display: flex;
-  padding: 1rem 3rem;
+  padding: 1rem 0rem;
   color: #fff;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo-text {
+  padding-left: 3rem;
   text-transform: uppercase;
   margin: 0;
   color: white;
   font-size: 1.4rem;
   text-decoration: none;
   font-weight: 700;
+}
+.un-authorised-main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+.about-section-container {
+  display: flex;
+  min-height: 100vh;
+}
+.about-section-right {
+  background-image: url("./assets/hero-right.png");
+  background-size: cover;
+  background-position: bottom;
+  width: 50%;
+  height: 100vh;
+  color: white;
+}
+
+.question {
+  font-weight: 700;
+}
+.about-section-left {
+  width: 50%;
+}
+.about-section-content {
+  padding: 2rem 3rem;
+}
+.about-section-content h3 {
+  font-size: 1.7rem;
+  margin: 0;
+}
+.about-section-content p {
+  width: 70%;
+  font-size: 1.2rem;
 }
 .pagination {
   display: flex;
@@ -55,9 +92,15 @@ a {
   background-color: rgb(0, 21, 41);
 }
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
   margin: 0;
   color: black;
-  background-color: rgb(0, 21, 41);
+}
+.navbar {
+  margin-right: 2rem;
 }
 .navbar-link {
   text-decoration: none;
@@ -66,8 +109,8 @@ a {
   margin-right: 1rem;
   color: black;
   transition: all 0.2s ease-out;
-  background-color: #fff;
-  border: none;
+  background-color: transparent;
+  border: 3px solid black;
 }
 .hide_onMobile {
   padding-left: 6px;
@@ -80,41 +123,87 @@ a {
   display: flex;
   overflow: hidden;
 }
-.main-unauthorised {
-  background-color: rgb(0, 21, 41);
+
+.hero-section {
+  color: black;
   display: flex;
-  width: 100%;
-  height: 94vh;
-  overflow: hidden;
-  padding-left: 3rem;
-  padding-right: 2rem;
+  font-size: 2rem;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+.hero-section-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+  background-image: url("./assets/hero-right.png");
+  background-size: cover;
+  color: white;
+}
+.hero-section-left {
+  display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Barlow Condensed", sans-serif;
+  width: 50%;
 }
-.hero-section {
-  color: white;
-  font-size: 2rem;
-  padding-bottom: 6rem;
+.hero-section-left-image {
+  padding-top: 3rem;
+  width: 90%;
+  height: auto;
 }
 .hero-section-heading {
-  width: 55%;
+  margin-top: 0;
   margin-bottom: 1rem;
+  margin-left: 3rem;
+  width: 85%;
 }
 .hero-section-btn {
   margin: 1rem 0;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   text-transform: uppercase;
   font-size: 1.1rem;
   transition: all 0.1s ease-in;
   text-decoration: none;
-  color: black;
-  background-color: #fff;
+  color: white;
+  margin-left: 3rem;
+  border: 3px solid white;
 }
 
-.hero-section-btn:hover {
+.form-hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form-hero-section-input {
+  font-family: inherit;
+  padding: 10px;
+  margin: 0.5rem 0;
+  width: 70%;
+}
+.form-hero-section-textarea {
+  font-family: inherit;
+  padding: 10px;
+  margin: 0.5rem 0;
+  width: 70%;
+}
+.form-hero-section-submit {
+  margin-top: 1rem;
+  padding: 10px 15px;
+  font-family: inherit;
+  width: auto;
+  text-transform: uppercase;
+  border: 3px solid black;
+  background-color: transparent;
+  transition: all 0.1s ease-in;
+}
+.form-hero-section-submit:hover {
   background-color: black;
   color: white;
+}
+.hero-section-btn:hover {
+  background-color: white;
+  color: black;
 }
 
 .hero-section-link {
@@ -157,7 +246,7 @@ a {
 .input-section {
   background-color: rgb(0, 21, 41);
   width: 40vw;
-  padding: 4rem 3rem;
+  padding: 8rem 3rem;
   min-height: 90vh;
 }
 .input-section_title {
@@ -259,6 +348,7 @@ form {
 .form-section-login {
   font-size: 0.7rem;
 }
+
 .alert {
   position: absolute;
   top: 5rem;
@@ -357,11 +447,11 @@ form {
 @media only screen and (max-width: 1100px) {
   .input-section {
     width: 60vw;
-    padding: 4rem 3rem;
+    padding: 7rem 3rem;
     min-height: 90vh;
   }
   .transaction-list-section {
-    padding: 1rem 1.5rem;
+    padding: 2rem 1.5rem;
     margin: 3rem 2rem;
   }
 
@@ -390,15 +480,15 @@ form {
   .input-section {
     width: 100%;
     overflow: hidden;
-    padding: 3rem 0rem;
-    padding-left: 2rem;
+    padding: 5rem 0rem;
+    padding-left: 3rem;
     min-height: fit-content;
   }
   .hero-section-heading {
     width: 80%;
   }
   .transaction-list-section {
-    padding: 1rem auto;
+    padding: 1rem 3rem;
     margin: 3rem auto;
   }
   .transaction-list_item {
@@ -409,10 +499,50 @@ form {
     padding: 14px 15px;
   }
 }
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 850px) {
+  .form-hero-section-input {
+    width: 95%;
+  }
+  .form-hero-section-textarea {
+    width: 95%;
+  }
   .hero-section-heading {
-    font-size: 1.7rem;
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .about-section-content p {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+  .navbar-link {
+    color: white;
+    border-color: white;
+  }
+  .hero-section-right {
+    width: 100%;
+  }
+  .hero-section-left {
+    display: none;
+  }
+  .hero-section-left-image {
+    width: 95%;
+  }
+  .about-section-container {
+    flex-direction: column;
+  }
+  .about-section-right {
+    background-image: none;
+    background-color: transparent;
+    color: black;
+    width: 100%;
+    height: 55vh;
+  }
+  .about-section-left {
+    width: 100%;
+  }
+  .hero-section-heading {
+    font-size: 2.4rem;
   }
   .input-section {
     width: 95%;

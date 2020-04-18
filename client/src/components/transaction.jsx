@@ -9,7 +9,7 @@ export const Transaction = ({ transaction }) => {
   return (
     <li className="transaction-list_item">
       <h4 className="transaction-list_item-text">{text}</h4>
-      <h4 className="transaction-list_item-amount">{amount}</h4>
+      <h4 className="transaction-list_item-amount">${amount}</h4>
       <button
         onClick={() => dispatch(deleteTransaction(_id))}
         className="delete-btn button-space"

@@ -5,6 +5,7 @@ import AddItem from "../components/additem";
 import TransactionList from "../components/transactionlist";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { HeroSection } from "../components/herosection";
 
 const Home = ({ isAuthenticated }) => {
   const AuthenticatedLinks = (
@@ -21,19 +22,7 @@ const Home = ({ isAuthenticated }) => {
   );
   const unAuthorizedLinks = (
     <div className="main-unauthorised">
-      <div className="hero-section">
-        <h2 className="hero-section-heading">
-          A Simple Budget manager application that lets you track your income
-          and expense with a easy to use UI{" "}
-        </h2>
-        <Link className="hero-section-btn" to="/login">
-          Login to Access <i className="fas fa-arrow-right"></i>
-        </Link>
-        <h4 className="hero-section-link">
-          Don't have an account ?{" "}
-          <Link to="/signup">Click here to Sign up</Link>{" "}
-        </h4>
-      </div>
+      <HeroSection />
     </div>
   );
 
