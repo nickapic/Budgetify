@@ -1,7 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export const HeroSection = () => {
+  useEffect(() => {
+    document.body.className += "js-loading";
+    window.addEventListener("load", showPage, false);
+
+    function showPage() {
+      document.body.className = document.body.className.replace(
+        "js-loading",
+        ""
+      );
+    }
+  }, []);
   return (
     <div className="un-authorised-main-container">
       <div className="hero-section">
@@ -39,30 +51,30 @@ export const HeroSection = () => {
             </h3>
             <p className="about-section-paragraph">
               <span className="question">
-                1) Is Budgetify a open source Project?
+                Is Budgetify a open source Project?
               </span>
               <br />
               <br />
-              Answer) Yes Budgetify is a open source project.The code for the
-              project can be accessed on my Github Page.
+              Yes Budgetify is a open source project.The code for the project
+              can be accessed on my Github Page.
             </p>
             <p className="about-section-paragraph">
               <span className="question">
-                2) Can i set a default Value for my Balance without adding it to
-                my Income?
+                Can i set a default Value for my Balance without adding it to my
+                Income?
               </span>
               <br />
               <br />
-              Answer) Yes , All the calculations will be done with that in mind
-              and the Initial Value wont be added to your Income Calculations.
+              Yes , All the calculations will be done with that in mind and the
+              Initial Value wont be added to your Income Calculations.
             </p>
             <p className="about-section-paragraph">
               <span className="question">
-                3) Are Recurring Payments supported?
+                Are Recurring Payments supported?
               </span>
               <br />
               <br />
-              Answer) Not yet , But they will be implemented super soon.
+              Not yet , But they will be implemented super soon.
             </p>
           </div>
         </div>

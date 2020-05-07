@@ -4,23 +4,30 @@ html {
 }
 body {
   margin: 0;
+  width: 80vw;
   font-family: "Barlow Condensed", sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  margin: 0 auto;
+}
+.light-mode {
+  color: black;
+}
+.light-mode a {
+  color: black;
 }
 .header {
   display: flex;
   padding: 1rem 0rem;
-  color: #fff;
   justify-content: space-between;
   align-items: center;
+  width: 76vw;
+  margin: 0 auto;
+  color: black;
 }
-
 .logo-text {
-  padding-left: 3rem;
   text-transform: uppercase;
   margin: 0;
-  color: white;
   font-size: 1.4rem;
   text-decoration: none;
   font-weight: 700;
@@ -36,14 +43,11 @@ body {
   min-height: 100vh;
 }
 .about-section-right {
-  background-image: url("./assets/hero-right.png");
   background-size: cover;
   background-position: bottom;
   width: 50%;
   height: 100vh;
-  color: white;
 }
-
 .question {
   font-weight: 700;
 }
@@ -91,14 +95,7 @@ a {
 .page-link:hover {
   background-color: rgb(0, 21, 41);
 }
-.header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  margin: 0;
-  color: black;
-}
+
 .navbar {
   margin-right: 2rem;
 }
@@ -107,10 +104,9 @@ a {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   margin-right: 1rem;
-  color: black;
+  color: white !important;
   transition: all 0.2s ease-out;
-  background-color: transparent;
-  border: 3px solid black;
+  background-color: #ff6e6c;
 }
 .hide_onMobile {
   padding-left: 6px;
@@ -137,15 +133,15 @@ a {
   justify-content: center;
   align-items: flex-start;
   width: 50%;
-  background-image: url("./assets/hero-right.png");
+  height: 80vh;
   background-size: cover;
-  color: white;
 }
 .hero-section-left {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 50%;
+  height: 80vh;
 }
 .hero-section-left-image {
   padding-top: 3rem;
@@ -165,15 +161,18 @@ a {
   font-size: 1.1rem;
   transition: all 0.1s ease-in;
   text-decoration: none;
-  color: white;
+  color: white !important;
   margin-left: 3rem;
-  border: 3px solid white;
+  background-color: #ff6e6c;
 }
 
 .form-hero-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+i {
+  margin-left: 0.25rem;
 }
 .form-hero-section-input {
   font-family: inherit;
@@ -193,7 +192,7 @@ a {
   font-family: inherit;
   width: auto;
   text-transform: uppercase;
-  border: 3px solid black;
+  border: 3px solid rgb(90, 85, 85);
   background-color: transparent;
   transition: all 0.1s ease-in;
 }
@@ -239,7 +238,6 @@ a {
 .transaction-list_item h4 {
   text-transform: uppercase;
   font-weight: 700;
-  color: white;
   margin: 0;
 }
 
@@ -282,6 +280,17 @@ a {
 }
 .containervalue {
   margin: 0;
+}
+.income-item {
+  background-color: #b5e57e;
+  color: black;
+}
+.income-tem h4 {
+  color: black;
+}
+.expense-item {
+  background-color: #db162f;
+  color: white;
 }
 .expensecontainer {
   display: flex;

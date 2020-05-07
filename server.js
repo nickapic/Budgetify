@@ -14,10 +14,11 @@ app.use(express.json({ extended: false }));
 const PORT = process.env.PORT || 5000;
 
 const limiter = rateLimit({
-  max: 500,
+  max: 100,
   windowMs: 60 * 60 * 1000,
   message: "Tooo many requests from this IP, Please try again",
 });
+
 app.use("/api", limiter);
 
 app.use(mongoSanitize());

@@ -24,11 +24,11 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className="App">
+        <div className="App light-mode">
           <Navbar />
           <Alert />
           <Switch>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
             </Route>
             <Route exact path="/login">
