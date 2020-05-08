@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { ReactComponent as HeroSVG } from "../assets/hero.svg";
 
 export const HeroSection = () => {
   useEffect(() => {
@@ -19,20 +20,19 @@ export const HeroSection = () => {
       <div className="hero-section">
         <div className="hero-section-right">
           <h2 className="hero-section-heading">
-            A Simple Budget manager application that lets you track your income
-            and expense with a easy to use UI{" "}
+            A Simple Budget manager application
           </h2>
+          <p className="hero-section-paragraph">
+            Budgetify provides very easy to use Interface for people to track
+            where there money is being spent it and track their monthly expenses
+            with ease.
+          </p>
           <a className="hero-section-btn" href="#aboutus">
             Learn more <i className="fas fa-arrow-right"></i>
           </a>
         </div>
         <div className="hero-section-left">
-          <img
-            className="hero-section-left-image"
-            src="https://i.ibb.co/J2Khmq7/marginalia-payment-processed.png"
-            alt="marginalia-payment-processed"
-            border="0"
-          />
+          <HeroSVG width="100%" />
         </div>
       </div>
       <div className="about-section-container" id="aboutus">

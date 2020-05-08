@@ -21,7 +21,7 @@ body {
   padding: 1rem 0rem;
   justify-content: space-between;
   align-items: center;
-  width: 76vw;
+  width: 80vw;
   margin: 0 auto;
   color: black;
 }
@@ -40,7 +40,7 @@ body {
 }
 .about-section-container {
   display: flex;
-  min-height: 100vh;
+  min-height: 60vh;
 }
 .about-section-right {
   background-size: cover;
@@ -112,8 +112,7 @@ a {
   padding-left: 6px;
 }
 .navbar-link:hover {
-  background-color: black;
-  color: white;
+  background-color: #ee4340;
 }
 .main-container {
   display: flex;
@@ -124,7 +123,7 @@ a {
   color: black;
   display: flex;
   font-size: 2rem;
-  height: 100vh;
+  height: 86vh;
   scroll-behavior: smooth;
 }
 .hero-section-right {
@@ -150,19 +149,24 @@ a {
 }
 .hero-section-heading {
   margin-top: 0;
-  margin-bottom: 1rem;
-  margin-left: 3rem;
+  font-size: 3.4rem;
+  margin-bottom: 0rem;
   width: 85%;
 }
+.hero-section-paragraph {
+  width: 75%;
+  margin: 0.75rem 0;
+  font-size: 1.5rem;
+}
 .hero-section-btn {
-  margin: 1rem 0;
+  margin: 0.35rem 0;
   padding: 0.75rem 1.5rem;
+  margin-bottom: 10rem;
   text-transform: uppercase;
   font-size: 1.1rem;
   transition: all 0.1s ease-in;
   text-decoration: none;
   color: white !important;
-  margin-left: 3rem;
   background-color: #ff6e6c;
 }
 
@@ -191,18 +195,18 @@ i {
   padding: 10px 15px;
   font-family: inherit;
   width: auto;
+  color: white;
   text-transform: uppercase;
-  border: 3px solid rgb(90, 85, 85);
-  background-color: transparent;
+  background-color: #ff6e6c;
   transition: all 0.1s ease-in;
+  border: none;
+  cursor: pointer;
 }
 .form-hero-section-submit:hover {
-  background-color: black;
-  color: white;
+  background-color: #fd5c5a;
 }
 .hero-section-btn:hover {
-  background-color: white;
-  color: black;
+  background-color: #ee4340;
 }
 
 .hero-section-link {
@@ -445,7 +449,12 @@ form {
   transition: opacity 0.3s ease;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1480px) {
+  .hero-section-heading {
+    font-size: 2.8rem;
+  }
+}
+@media only screen and (max-width: 1220px) {
   html {
     font-size: 80%;
   }
@@ -470,6 +479,15 @@ form {
 }
 
 @media only screen and (max-width: 1000px) {
+  .hero-section-heading {
+    font-size: 2.4rem;
+  }
+  .hero-section-left {
+    height: 70vh;
+  }
+  .hero-section-btn {
+    padding: 0.5rem 1rem;
+  }
   .form-section {
     width: 50%;
     margin: 5rem auto;
@@ -485,6 +503,13 @@ form {
   }
   .hide_onMobile {
     display: none;
+  }
+  .hero-section-heading {
+    font-size: 2rem;
+  }
+
+  .hero-section-btn {
+    font-size: 0.7rem;
   }
   .input-section {
     width: 100%;
@@ -509,6 +534,15 @@ form {
   }
 }
 @media only screen and (max-width: 850px) {
+  .hero-section-heading {
+    font-size: 1.7rem;
+  }
+  .hero-section-paragraph {
+    font-size: 1rem;
+  }
+  .hero-section-btn {
+    font-size: 0.7rem;
+  }
   .form-hero-section-input {
     width: 95%;
   }
@@ -520,9 +554,18 @@ form {
   }
 }
 @media only screen and (max-width: 600px) {
+  body {
+    width: 90vw;
+  }
+  header {
+    width: 90vw;
+  }
   .about-section-content p {
     width: 90%;
     font-size: 1.2rem;
+  }
+  .hero-section {
+    flex-direction: column;
   }
   .navbar-link {
     color: white;
