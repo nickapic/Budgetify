@@ -1,3 +1,4 @@
+/* Global Styling*/
 html {
   box-sizing: border-box;
   overflow-x: hidden;
@@ -16,6 +17,12 @@ body {
 .light-mode a {
   color: black;
 }
+
+.hide_onMobile {
+  padding-left: 6px;
+}
+
+/* Header Styling*/
 .header {
   display: flex;
   padding: 1rem 0rem;
@@ -32,6 +39,22 @@ body {
   text-decoration: none;
   font-weight: 700;
 }
+.navbar {
+  margin-right: 2rem;
+}
+.navbar-link {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  color: white !important;
+  transition: all 0.2s ease-out;
+  background-color: #ff6e6c;
+}
+.navbar-link:hover {
+  background-color: #ee4340;
+}
+/* Hero Section Styling */
 .un-authorised-main-container {
   display: flex;
   flex-direction: column;
@@ -65,60 +88,10 @@ body {
   width: 70%;
   font-size: 1.2rem;
 }
-.pagination {
-  display: flex;
-  padding-inline-start: 1rem;
-}
-.page-item {
-  list-style: none;
-  display: inline-block;
-  padding: 10px;
-  background-color: rgb(0, 21, 41);
-  margin-right: 5px;
-}
-a {
-  cursor: pointer;
-}
-.page-item {
-  list-style: none;
-  display: inline-block;
-  padding: 0;
-  margin-right: 5px;
-}
-.page-link {
-  text-decoration: none;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  transition: all 0.1s ease-in;
-}
-.page-link:hover {
-  background-color: rgb(0, 21, 41);
-}
-
-.navbar {
-  margin-right: 2rem;
-}
-.navbar-link {
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  margin-right: 1rem;
-  color: white !important;
-  transition: all 0.2s ease-out;
-  background-color: #ff6e6c;
-}
-.hide_onMobile {
-  padding-left: 6px;
-}
-.navbar-link:hover {
-  background-color: #ee4340;
-}
 .main-container {
   display: flex;
   overflow: hidden;
 }
-
 .hero-section {
   color: black;
   display: flex;
@@ -169,7 +142,22 @@ a {
   color: white !important;
   background-color: #ff6e6c;
 }
+.hero-section-btn:hover {
+  background-color: #ee4340;
+}
 
+.hero-section-link {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  display: block;
+  color: white;
+  font-weight: 400;
+  text-decoration: none;
+}
+.hero-section-link a {
+  color: white;
+}
+/*Form Section(Hero) Styling*/
 .form-hero-section {
   display: flex;
   flex-direction: column;
@@ -205,21 +193,7 @@ i {
 .form-hero-section-submit:hover {
   background-color: #fd5c5a;
 }
-.hero-section-btn:hover {
-  background-color: #ee4340;
-}
 
-.hero-section-link {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  display: block;
-  color: white;
-  font-weight: 400;
-  text-decoration: none;
-}
-.hero-section-link a {
-  color: white;
-}
 .transaction-list-section {
   display: flex;
   flex-direction: column;
@@ -246,13 +220,11 @@ i {
 }
 
 .input-section {
-  background-color: rgb(0, 21, 41);
-  width: 40vw;
-  padding: 8rem 3rem;
+  width: 100vw;
+  padding: 5rem 0rem;
   min-height: 90vh;
 }
 .input-section_title {
-  color: white;
   font-weight: 700;
   margin: 0;
   font-size: 1.5rem;
@@ -260,7 +232,6 @@ i {
 }
 
 .input-section_money {
-  color: white;
   font-weight: 700;
   margin-top: 0.5rem;
   padding: 0;
@@ -275,7 +246,6 @@ i {
   padding: 15px 20px;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
 }
 .containertext {
   margin: 0;
@@ -298,11 +268,12 @@ i {
 }
 .expensecontainer {
   display: flex;
-  width: 80%;
+  flex-direction: column;
+  width: 30rem;
   padding: 15px 20px;
   justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
+  align-items: flex-start;
+  background-color: #db162f;
 }
 
 .add-transaction-title {
@@ -351,11 +322,11 @@ form {
   align-self: flex-start;
   font-size: 1rem;
   border: none;
-  background-color: rgb(0, 21, 41);
+  background-color: #ff6e6c;
   color: white;
 }
 .form-input-btn:hover {
-  background-color: rgb(1, 36, 68);
+  background-color: #fe5754;
   cursor: pointer;
 }
 .form-section-login {
@@ -486,7 +457,7 @@ form {
     height: 70vh;
   }
   .hero-section-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
   }
   .form-section {
     width: 50%;
