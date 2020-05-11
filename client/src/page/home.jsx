@@ -1,23 +1,13 @@
 import React, { Fragment } from "react";
-import Balance from "../components/balance";
-import IncomeExpense from "../components/incomexpense";
-import AddItem from "../components/additem";
-import TransactionList from "../components/transactionlist";
+
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { HeroSection } from "../components/herosection";
+import { Manager } from "./manager";
 
 const Home = ({ isAuthenticated }) => {
   const AuthenticatedLinks = (
     <Fragment>
-      <div className="input-section">
-        <Balance />
-        <IncomeExpense />
-        <AddItem />
-      </div>
-      <div className="transaction-section">
-        <TransactionList />
-      </div>
+      <Manager />
     </Fragment>
   );
   const unAuthorizedLinks = (

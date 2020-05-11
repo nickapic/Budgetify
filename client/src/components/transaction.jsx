@@ -6,7 +6,7 @@ import { numberWithCommas } from "../utils/format";
 
 export const Transaction = ({ transaction }) => {
   const dispatch = useDispatch();
-  const { text, amount, _id } = transaction;
+  const { text, amount, category, _id } = transaction;
 
   let negative = false;
   if (amount < 0) {
@@ -29,7 +29,7 @@ export const Transaction = ({ transaction }) => {
       }
     >
       <h4 className="transaction-list_item-text">{text}</h4>
-      {!negative ? Income : Expense}{" "}
+      {!negative ? Income : Expense}
       <button
         onClick={() => dispatch(deleteTransaction(_id))}
         className="delete-btn button-space"

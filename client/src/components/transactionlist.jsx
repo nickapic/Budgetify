@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 const TransactionList = ({
   getTransactions,
   transaction: { transactions, loading },
-  auth: { isAuthenticated }
+  auth: { isAuthenticated },
 }) => {
   useEffect(() => {
     getTransactions();
@@ -15,7 +15,7 @@ const TransactionList = ({
   const authenticatedContent = (
     <section className="transaction-list-section">
       <ul className="transaction-list_container">
-        {transactions.map(transaction => (
+        {transactions.map((transaction) => (
           <Transaction key={transaction._id} transaction={transaction} />
         ))}
       </ul>
@@ -36,8 +36,8 @@ const TransactionList = ({
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   transaction: state.transaction,
-  auth: state.auth
+  auth: state.auth,
 });
 export default connect(mapStateToProps, { getTransactions })(TransactionList);

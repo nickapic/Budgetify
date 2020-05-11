@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { numberWithCommas } from "../utils/format";
 
 const Balance = ({ transactions }) => {
-  const amounts = transactions.map(transaction => transaction.amount);
+  const amounts = transactions.map((transaction) => transaction.amount);
   console.log(amounts);
   const total = amounts.reduce((prev, cur) => (prev += cur), 0);
   let negative = false;
@@ -22,16 +22,18 @@ const Balance = ({ transactions }) => {
   );
   return (
     <div>
-      <div>
-        <h2 className="input-section_title">Your available budget is</h2>
+      <div className="input-section_balance">
+        <div className="input-section-budget_info">
+          <h2 className="input-section_title">Your available budget is</h2>
+        </div>
         {!negative ? Income : Expense}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  transactions: state.transaction.transactions
+const mapStateToProps = (state) => ({
+  transactions: state.transaction.transactions,
 });
 
 export default connect(mapStateToProps)(Balance);

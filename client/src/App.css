@@ -2,6 +2,7 @@
 html {
   box-sizing: border-box;
   overflow-x: hidden;
+  background-color: #fffffe;
 }
 body {
   margin: 0;
@@ -21,11 +22,14 @@ body {
 .hide_onMobile {
   padding-left: 6px;
 }
+ul {
+  margin: 0;
+}
 
 /* Header Styling*/
 .header {
   display: flex;
-  padding: 1rem 0rem;
+  padding: 2rem 0rem;
   justify-content: space-between;
   align-items: center;
   width: 80vw;
@@ -194,11 +198,11 @@ i {
   background-color: #fd5c5a;
 }
 
+/*Transactions Styling  */
+
 .transaction-list-section {
   display: flex;
   flex-direction: column;
-  padding: 1rem 2rem;
-  margin: 5rem 3rem;
 }
 
 .transaction-list-section_heading {
@@ -207,10 +211,10 @@ i {
 }
 .transaction-list_item {
   display: flex;
-  width: 30rem;
+  width: 35rem;
   padding: 15px;
   background-color: rgb(0, 21, 41);
-  margin: 10px auto;
+  margin: 0.5rem auto;
   justify-content: space-between;
 }
 .transaction-list_item h4 {
@@ -218,34 +222,42 @@ i {
   font-weight: 700;
   margin: 0;
 }
-
 .input-section {
-  width: 100vw;
-  padding: 5rem 0rem;
-  min-height: 90vh;
+  padding: 3rem 0rem;
+  width: 100%;
+}
+.manager-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .input-section_title {
   font-weight: 700;
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 
 .input-section_money {
   font-weight: 700;
-  margin-top: 0.5rem;
+  margin: 0;
+  margin-right: 3rem;
   padding: 0;
   font-size: 2rem;
   text-transform: uppercase;
 }
-
+.transaction-list-heading {
+  margin: 9px;
+}
 .incomecontainer {
   margin: 10px 0;
   display: flex;
-  width: 80%;
+  flex-direction: column;
+  background-color: #a6ce78;
+  width: 35rem;
   padding: 15px 20px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 .containertext {
   margin: 0;
@@ -257,7 +269,6 @@ i {
 }
 .income-item {
   background-color: #b5e57e;
-  color: black;
 }
 .income-tem h4 {
   color: black;
@@ -269,30 +280,42 @@ i {
 .expensecontainer {
   display: flex;
   flex-direction: column;
-  width: 30rem;
+  width: 35rem;
   padding: 15px 20px;
   justify-content: space-between;
   align-items: flex-start;
+  color: white;
   background-color: #db162f;
 }
-
+.input-section_balance {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .add-transaction-title {
   font-size: 1.5rem;
-  color: white;
+  margin: 0;
 }
-.addtransaction-label {
-  color: white !important;
+
+.input-section_information {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 3rem;
 }
 .addtransaction-input {
   width: 80% !important;
   padding: 1rem;
 }
 .add-transactions {
-  padding: 10px 0;
+  background-color: #eff0f3;
+  color: black;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
 }
 .incexp {
   margin: 20px 0;
 }
+
 form {
   padding: 0.25rem 0;
 }
@@ -377,8 +400,8 @@ form {
   color: #fff;
 }
 .btn {
-  background-color: white;
-  color: black;
+  background-color: #ff6e6c;
+  color: white;
   border: none;
   font-family: inherit;
   cursor: pointer;
@@ -396,7 +419,7 @@ form {
   justify-content: center;
 }
 .btn:hover {
-  background-color: black;
+  background-color: #f27371;
   transition: all 0.2s ease-out;
   color: white;
 }
