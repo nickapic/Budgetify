@@ -5,13 +5,14 @@ import { addTransaction } from "../Redux/actions/transaction";
 const AddItem = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
+  const [category, setCategory] = useState("general");
   const dispatch = useDispatch();
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const newTransaction = {
       text,
-      amount: +amount
+      amount: +amount,
     };
     dispatch(addTransaction(newTransaction));
     console.log(newTransaction);
@@ -31,7 +32,7 @@ const AddItem = () => {
             type="text"
             value={text}
             className="addtransaction-input"
-            onChange={e => setText(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
             placeholder="Enter text..."
           />
         </div>
@@ -44,11 +45,25 @@ const AddItem = () => {
             type="number"
             value={amount}
             className="addtransaction-input"
-            onChange={e => setAmount(e.target.value)}
+            onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount..."
           />
+          <label for="cars">Choose a category:</label>
+          <select
+            className="addtransaction-input"
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="General">General</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Groceries">Groceries</option>
+            <option value="Restaurants">Restaurants</option>
+            <option value="Technology">Technology</option>
+          </select>
         </div>
-        <button className="btn">Add transaction</button>
+        <button className="btn">
+          <i class="far fa-arrow-alt-circle-right"></i>
+        </button>
       </form>
     </div>
   );

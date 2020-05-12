@@ -253,7 +253,17 @@ i {
   margin: 10px 0;
   display: flex;
   flex-direction: column;
-  background-color: #a6ce78;
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #8dc26f,
+    #76b852
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #8dc26f,
+    #76b852
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width: 35rem;
   padding: 15px 20px;
   justify-content: space-between;
@@ -268,13 +278,33 @@ i {
   margin: 0;
 }
 .income-item {
-  background-color: #b5e57e;
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #8dc26f,
+    #76b852
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #8dc26f,
+    #76b852
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .income-tem h4 {
   color: black;
 }
 .expense-item {
-  background-color: #db162f;
+  background: #e53935; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e35d5b,
+    #e53935
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e35d5b,
+    #e53935
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
 .expensecontainer {
@@ -285,7 +315,17 @@ i {
   justify-content: space-between;
   align-items: flex-start;
   color: white;
-  background-color: #db162f;
+  background: #e53935; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e35d5b,
+    #e53935
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e35d5b,
+    #e53935
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .input-section_balance {
   display: flex;
@@ -307,13 +347,29 @@ i {
   padding: 1rem;
 }
 .add-transactions {
-  background-color: #eff0f3;
+  background: #ffb347; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffcc33,
+    #ffb347
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffcc33,
+    #ffb347
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   color: black;
   padding: 2rem 1rem;
   margin-top: 2rem;
 }
 .incexp {
   margin: 20px 0;
+}
+.btn i {
+  font-size: 1rem;
+  color: black;
+  margin: 0;
 }
 
 form {
@@ -337,6 +393,16 @@ form {
   margin-bottom: 1rem;
   font-size: 1rem;
   width: 100%;
+  border: none;
+  font-family: inherit;
+}
+
+.form-control select {
+  padding: 10px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
   font-family: inherit;
 }
 .form-input-btn {
@@ -400,12 +466,11 @@ form {
   color: #fff;
 }
 .btn {
-  background-color: #ff6e6c;
-  color: white;
+  background-color: white;
+  color: black;
   border: none;
   font-family: inherit;
   cursor: pointer;
-  font-size: 0.8rem;
   margin-top: 1rem;
   padding: 1rem;
   font-weight: 700;

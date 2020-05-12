@@ -13,12 +13,12 @@ export const Transaction = ({ transaction }) => {
     negative = true;
   }
   const Income = (
-    <h4 className="transaction-list_item-amount income-item">
+    <h4 className="transaction-list_item-amount ">
       ${numberWithCommas(amount)}
     </h4>
   );
   const Expense = (
-    <h4 className="transaction-list_item-amount expense-item">
+    <h4 className="transaction-list_item-amount ">
       -${numberWithCommas(Math.abs(amount))}
     </h4>
   );
