@@ -11,7 +11,7 @@ const Home = ({ isAuthenticated }) => {
     </Fragment>
   );
   const unAuthorizedLinks = (
-    <div className="main-unauthorised">
+    <div className="main-unauthorised ">
       <HeroSection />
     </div>
   );
