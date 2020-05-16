@@ -36,6 +36,7 @@ const Login = ({ login, isAuthenticated }) => {
             <input
               type="email"
               name="email"
+              id="email"
               className="form-input"
               placeholder="Your Email here"
               onChange={(e) => onChange(e)}
@@ -50,6 +51,7 @@ const Login = ({ login, isAuthenticated }) => {
             <input
               type="password"
               name="password"
+              id="password"
               className="form-input"
               placeholder="Enter your password here"
               onChange={(e) => onChange(e)}

@@ -48,9 +48,10 @@ const AddItem = () => {
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter amount..."
           />
-          <label for="cars">Choose a category:</label>
+          <label for="categories">Choose a category:</label>
           <select
             className="addtransaction-input"
+            id="categories"
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="General">General</option>

@@ -95,18 +95,29 @@ export const HeroSection = () => {
               Have any Suggestions ? Feel Free to tell us about it.
             </h3>
             <form action="" className="form-hero-section">
+              <label className="form-label" htmlFor="name">
+                Full Name
+              </label>
               <input
                 type="text"
+                id="name"
                 className="form-hero-section-input"
                 placeholder="Your Name Here"
                 required
               />
+              <label className="form-label" htmlFor="email">
+                Email
+              </label>
               <input
                 type="email"
+                id="email"
                 className="form-hero-section-input"
                 placeholder="Your Email Here"
                 required
               />
+              <label className="form-label" htmlFor="subject">
+                Your message
+              </label>
               <textarea
                 name="subject"
                 id="subject"

@@ -8,12 +8,12 @@ const Navbar = ({ logout, auth: { isAuthenticated, loading } }) => {
   const unAuthorizedLinks = (
     <div className="navbar">
       <Link to="/login" className="navbar-link">
-        <i class="fas fa-sign-in-alt"></i>
+        <i className="fas fa-sign-in-alt"></i>
         <span className="hide_onMobile">Log in</span>
         {"     "}
       </Link>
       <Link to="/signup" className="navbar-link">
-        <i class="fas fa-user-plus"></i> {"     "}
+        <i className="fas fa-user-plus"></i> {"     "}
         <span className="hide_onMobile">Sign Up</span>{" "}
       </Link>
     </div>
