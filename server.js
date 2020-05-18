@@ -43,5 +43,5 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.listen(PORT, () =>
-  console.log(`Server tarted on port ${PORT} so congrats `)
+  console.log(`Server Started on port ${PORT} so congrats `)
 );
