@@ -28,7 +28,11 @@ export const Transaction = ({ transaction }) => {
         "transaction-list_item " + (!negative ? "income-item" : "expense-item")
       }
     >
-      <h4 className="transaction-list_item-text">{text}</h4>
+      <div className="transaction-list_item-details">
+        <h4 className="transaction-list_item-text">{text}</h4>
+        <span className="transaction-list_item-category">{category}</span>
+      </div>
+
       {!negative ? Income : Expense}
       <button
         onClick={() => dispatch(deleteTransaction(_id))}

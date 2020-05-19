@@ -13,11 +13,13 @@ const AddItem = () => {
     const newTransaction = {
       text,
       amount: +amount,
+      category,
     };
     dispatch(addTransaction(newTransaction));
     console.log(newTransaction);
     setText("");
     setAmount(0);
+    setCategory("general");
   };
 
   return (

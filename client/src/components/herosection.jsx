@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { ReactComponent as HeroSVG } from "../assets/hero.svg";
 

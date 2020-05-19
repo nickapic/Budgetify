@@ -299,6 +299,23 @@ i {
   font-weight: 700;
   margin: 0;
 }
+transaction-list_section-heading {
+  margin-left: 6px;
+  text-transform: uppercase;
+}
+.transaction-list_item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.transaction-list_item-category {
+  margin-left: 2rem;
+  font-size: 0.7rem;
+  padding: 7px 10px;
+  background: rgb(234, 234, 234);
+  color: black;
+  border-radius: 20px;
+}
 .input-section {
   padding: 3rem 0rem;
   width: 100%;
@@ -444,7 +461,20 @@ form {
 .form-section-login {
   font-size: 0.7rem;
 }
-
+.transaction-list_section-searchbox {
+  padding: 0.75rem 1rem;
+  width: 15rem;
+  font-family: inherit;
+  --webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  border: 2px solid black;
+}
+.transaction-list_section-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .alert {
   position: absolute;
   top: 5rem;
@@ -620,6 +650,9 @@ form {
   .input-section_information-manager {
     width: 23rem;
   }
+  .transaction-list_section-searchbox {
+    width: 12rem;
+  }
 }
 @media only screen and (max-width: 850px) {
   .hero-section-heading {
@@ -649,6 +682,10 @@ form {
   .transaction-list_container {
     margin-top: 2rem;
     width: 73vw;
+  }
+  .transaction-list_section-searchbox {
+    width: 80vw;
+    margin-top: 3rem;
   }
 }
 
