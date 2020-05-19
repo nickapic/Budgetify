@@ -27,7 +27,7 @@ router.post(
   "/",
   [
     check("email", "Please Include a valid email").isEmail(),
-    check("password", "Password is required ").exists()
+    check("password", "Password is required ").exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -53,15 +53,15 @@ router.post(
 
       const payload = {
         user: {
-          id: user._id
-        }
+          id: user._id,
+        },
       };
 
       jwt.sign(
         payload,
         config.get("jwtSecret"),
         {
-          expiresIn: 3600 * 78
+          expiresIn: 3600 * 1,
         },
         (err, token) => {
           if (err) throw err;
@@ -75,4 +75,35 @@ router.post(
   }
 );
 
+/*
+Cookie Approach 
+const createSendToken = (user, statusCode, res) => {
+  const token = signToken(user._id);
+  const cookieOptions = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 10
+    ),
+    httpOnly: true
+  };
+ if (process.env.NODE_ENV === "production") cookieOptions.secure = true;
+
+  res.cookie("jwt", token, cookieOptions);
+
+  user.password = undefined;
+
+  res.status(statusCode).json({
+    success: true,
+    token,
+    data: {
+      user
+    }
+  });
+};
+const signToken = id => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EXPIRES_IN
+  });
+};
+
+*/
 module.exports = router;
