@@ -16,7 +16,7 @@ const TransactionList = ({
   const filteredContent = transactions.filter((transaction) => {
     return transaction.text.toLowerCase().includes(searchField.toLowerCase());
   });
-
+  const PaginatedContent = filteredContent.slice(0, 9);
   const authenticatedContent = (
     <section className="transaction-list-section">
       <div className="transaction-list_section-details">
@@ -29,7 +29,7 @@ const TransactionList = ({
         />
       </div>
       <ul className="transaction-list_container">
-        {filteredContent.map((transaction) => (
+        {PaginatedContent.map((transaction) => (
           <Transaction key={transaction._id} transaction={transaction} />
         ))}
       </ul>
