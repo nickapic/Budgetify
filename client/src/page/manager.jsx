@@ -1,5 +1,5 @@
 import React from "react";
-import Balance from "../components/balance";
+import Balance from "../components/Balance";
 import IncomeExpense from "../components/incomexpense";
 import AddItem from "../components/additem";
 import TransactionList from "../components/transactionlist";
