@@ -1,0 +1,34 @@
+
+name: "sbom-scan"
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+        sudo apt install npm
+        sudo npm install --package-lock
+        npm audit fix
+      
+    - name: Installing "sbom-scan"
+      run: |
+        sudo npm install -g @cyclonedx/bom
+      
+    - name: CCycloneDX Node.js Generate SBOM
+      uses: CycloneDX/gh-node-module-generatebom@v1.0.0
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: SBOM Report
+        path: |
+          ./bom.xml
