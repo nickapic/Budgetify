@@ -24,7 +24,7 @@
     "hpp": "^0.2.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.6",
-    "nodemailer": "^6.4.6",
+    "nodemailer": "^6.4.16",
     "react-preloaders": "^3.0.3",
     "request": "^2.88.2",
     "xss-clean": "^0.1.1"
