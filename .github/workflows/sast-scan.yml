@@ -1,0 +1,43 @@
+name: "Sast-Scan"
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  Sast-Scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          sudo apt install npm
+          sudo npm install --package-lock
+          npm audit fix
+          
+      - name: Nodejsscan Scan
+        uses: ajinabraham/njsscan-action@master
+        with:
+          args: '. --sarif --output results.sarif || true'
+        
+      - name: Owasp Dependency Check
+        run: |
+          wget https://github.com/jeremylong/DependencyCheck/releases/download/v6.3.1/dependency-check-6.3.1-release.zip
+          unzip dependency-check-6.3.1-release.zip
+
+      - name: Run Scan with ODC
+        run: |
+          dependency-check/bin/dependency-check.sh --project "Budgetify-app" --scan . > ODC-report
+
+      - name: Upload njsscan Report
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: results.sarif
+
+      - name: Archive Production Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: SAST REPORT 
+          path: |
+            ./ODC-report

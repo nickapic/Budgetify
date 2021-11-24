@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports: 
+      - "3000:3000"
+    depends_on: 
+      - mongo
+  mongo:
+    image: mongo:3.6-xenial
+    ports: 
+      - "27017:27017"
+
